@@ -30,3 +30,6 @@ class SfcDataTest(unittest.TestCase):
         self.assertEqual(data[0]['date'], '2018-02-12T00:00:00Z')
         self.assertEqual(data[0]['id'], 'Piacenza urbana')
         self.assertEqual(data[0]['xcoord'], 553515.377911354)
+        self.assertEqual(data[0]['ycoord'], 4989276.44709018)
+        self.assertEqual(data[0]['altitude'], 71.0,)
+        self.assertEqual(data[0]['dcoast'], 0.997882485170756)

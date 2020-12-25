@@ -43,8 +43,8 @@ def extract_variable(data_file, metadata_file, date, variable):
                                             {'id': nome,
                                              'date': a['date'],
                                              'xcoord': m_d[nome]['xcoord'],
-                                             'ycoord': m_d[nome]['xcoord'],
+                                             'ycoord': m_d[nome]['ycoord'],
                                              'altitude': m_d[nome]['altitude'],
-                                             'dcoast': m_d[nome]['altitude'],
+                                             'dcoast': m_d[nome]['dcoast'],
                                              'var': value})
     return data
