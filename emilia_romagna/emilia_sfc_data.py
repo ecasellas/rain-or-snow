@@ -15,6 +15,7 @@ def extract_variable(data_file, metadata_file, date, variable):
         date (datetime): Date and time of data to extract.
         variable (str): Variable to extract:
                            B12101 - air temperature
+                           B13003 - relative humidity
     """
     if exists(data_file) is False:
         raise FileNotFoundError('{} file is not found.'.format(data_file))
