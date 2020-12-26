@@ -7,6 +7,13 @@ from os.path import exists
 from pypros.psychrometrics import hr2td
 
 
+def dict_to_file(file_path, data):
+    with open(file_path, 'w') as f:
+        json.dump(data, f)
+        f.close()
+    return file_path
+
+
 def extract_variable(data_file, metadata_file, date, variable):
     """Gets specific instantaneous variable from ARPAE storico json data files.
 
@@ -48,6 +55,8 @@ def extract_variable(data_file, metadata_file, date, variable):
                                 if value is not None:
                                     if variable == 'B12101':
                                         value = round(value - 273.16, 2)
+                                else:
+                                    continue
                             else:
                                 continue
 
