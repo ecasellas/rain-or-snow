@@ -4,6 +4,7 @@ json data files.
 import json
 from datetime import datetime
 from os.path import exists
+from pypros.psychrometrics import hr2td
 
 
 def extract_variable(data_file, metadata_file, date, variable):
@@ -16,6 +17,7 @@ def extract_variable(data_file, metadata_file, date, variable):
         variable (str): Variable to extract:
                            B12101 - air temperature
                            B13003 - relative humidity
+                           td - dew point temperature
     """
     if exists(data_file) is False:
         raise FileNotFoundError('{} file is not found.'.format(data_file))
@@ -32,19 +34,31 @@ def extract_variable(data_file, metadata_file, date, variable):
                 for d in a['data']:
                     if 'timerange' in d.keys() and 'level' in d.keys():
                         if d['timerange'][0] == 254 and d['level'][1] == 2000:
-                            if variable in d['vars'].keys():
+                            if variable == 'td':
+                                if ('B12101' in d['vars'].keys() and
+                                        'B13003' in d['vars'].keys()):
+                                    ta = d['vars']['B12101']['v']
+                                    rh = d['vars']['B13003']['v']
+                                    if ta is not None and rh is not None:
+                                        value = hr2td(ta - 273.16, rh)
+                                    else:
+                                        continue
+                            elif variable in d['vars'].keys():
                                 value = d['vars'][variable]['v']
                                 if value is not None:
                                     if variable == 'B12101':
                                         value = round(value - 273.16, 2)
-                                    nome = a['data'][00]['vars']['B01019']['v']
-                                    if nome in m_d.keys():
-                                        data.append(
-                                            {'id': nome,
-                                             'date': a['date'],
-                                             'xcoord': m_d[nome]['xcoord'],
-                                             'ycoord': m_d[nome]['ycoord'],
-                                             'altitude': m_d[nome]['altitude'],
-                                             'dcoast': m_d[nome]['dcoast'],
-                                             'var': value})
+                            else:
+                                continue
+
+                            nome = a['data'][00]['vars']['B01019']['v']
+                            if nome in m_d.keys():
+                                data.append(
+                                    {'id': nome,
+                                        'date': a['date'],
+                                        'lon': m_d[nome]['lon'],
+                                        'lat': m_d[nome]['lat'],
+                                        'altitude': m_d[nome]['altitude'],
+                                        'dcoast': m_d[nome]['dcoast'],
+                                        'var': value})
     return data
