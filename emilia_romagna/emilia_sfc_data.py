@@ -8,6 +8,15 @@ from pypros.psychrometrics import hr2td
 
 
 def dict_to_file(file_path, data):
+    """Converts a dictionary structured data to a file.
+
+    Args:
+        file_path (str): Output file path (.json).
+        data (dict): Data to save.
+
+    Returns:
+        str: Output file path
+    """
     with open(file_path, 'w') as f:
         json.dump(data, f)
         f.close()
