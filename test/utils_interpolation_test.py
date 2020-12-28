@@ -12,7 +12,7 @@ class UtilsInterpolationTest(unittest.TestCase):
 
     data_dir = 'example_data/emilia_romagna/explanatory/'
     coast_line = data_dir + 'coast_line_shp/coast_line_25832.shp'
-    dem_file = data_dir + 'dem_emilia.tif'
+    dem_file = data_dir + 'dem_emilia_1km.tif'
 
     def test_calculate_dcoast(self):
         self.assertAlmostEqual(utils_interpolation.calculate_dcoast(1000),
@@ -27,11 +27,11 @@ class UtilsInterpolationTest(unittest.TestCase):
                                                       self.coast_line)
 
         self.assertAlmostEqual(dcoast[10, 10], 0.999, 2)
-        self.assertAlmostEqual(dcoast[500, 500], 0.991, 2)
-        self.assertAlmostEqual(dcoast[1040, 10], 0.999, 2)
-        self.assertAlmostEqual(dcoast[10, 1040], 0.721, 2)
+        self.assertAlmostEqual(dcoast[210, 210], 0.944, 2)
+        self.assertAlmostEqual(dcoast[60, 300], 0.582, 2)
+        self.assertAlmostEqual(dcoast[120, 120], 0.988, 2)
 
-    def test_(self):
+    def test_get_tif_from_array(self):
         test_file = 'test/save_file_test.tif'
         data = ones((10, 10))
         utils_interpolation.get_tif_from_array(test_file,
