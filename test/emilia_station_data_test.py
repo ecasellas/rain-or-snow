@@ -1,15 +1,15 @@
-"""Tests sfc_data module
+"""Tests emilia_station_data module
 """
 import unittest
 from datetime import datetime
 
-from emilia_romagna.emilia_sfc_data import extract_variable
+from emilia_romagna.emilia_stations_data import extract_variable
 
 
-class SfcDataTest(unittest.TestCase):
+class StationDataTest(unittest.TestCase):
 
     date = datetime(2018, 2, 12)
-    data_dir = 'example_data/emilia_romagna/sfc_observations/'
+    data_dir = 'example_data/emilia_romagna/stations/'
     data_file = data_dir + 'meteo-2018-02.json'
     metadata_file = data_dir + 'metadata_emilia.json'
     bad_file = data_dir + 'meteo-2018-03.json'
