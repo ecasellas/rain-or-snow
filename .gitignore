@@ -133,3 +133,4 @@ dmypy.json
 
 # example data
 /example_data
+/out

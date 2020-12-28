@@ -1,10 +1,11 @@
 {
-    "data_file": "example_data/emilia_romagna/sfc_observations/meteo-2018-02.json",
-    "metadata_file": "example_data/emilia_romagna/sfc_observations/metadata_emilia.json",
+    "data_file": "example_data/emilia_romagna/stations/meteo-2018-02.json",
+    "metadata_file": "example_data/emilia_romagna/stations/metadata_emilia.json",
     "variables_files": ["example_data/emilia_romagna/explanatory/dem_emilia_1km.tif",
                         "example_data/emilia_romagna/explanatory/dcoast_emilia_1km.tif"],
     "data_format": {"loc_vars": ["lon", "lat"], "id_key": "id", "y_var": "var", "x_vars": ["altitude", "dcoast"]},
     "residuals_int": "id3d",
+    "radar_dir": "example_data/emilia_romagna/radar/",
     "radar_gain": 0.313725490196078,
     "radar_offset": -20,
     "radar_bounds": [489000, 4817000, 837000, 5047000],
