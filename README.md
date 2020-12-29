@@ -10,7 +10,7 @@ The discrimination of precipitation phase is based on already exisiting methodol
 ### Emilia-Romagna
 The italian region of Emilia-Romagna is encompassed between the Po river and the Apennines, and limited to the east by the Adriatic Sea. The region presents a sharp orographic transition between the extensive Po Plain and the Apennines. 
 
-Meteorological data for this region was obtained from the Open Data service of the Agenzia regionale per la prevenzione, l'ambiente e l'energia dell'Emilia-RomagnaAgencia ([ARPAE](https://dati.arpae.it/)). 
+Meteorological data for this region was obtained from the Open Data service of the Agenzia regionale per la prevenzione, l'ambiente e l'energia dell'Emilia-Romagna Agencia ([ARPAE](https://dati.arpae.it/)). 
 
 An example of the application of one of the methodologies to ARPAE data is shown below for 12th February 2018 at 14 UTC. Data includes air temperatura and relative humidity surface observations and weather radar reflectivity fields.
 
