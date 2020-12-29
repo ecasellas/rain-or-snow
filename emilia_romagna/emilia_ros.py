@@ -53,6 +53,7 @@ if __name__ == '__main__':
     ros.save_file(ros.refl_mask(radar_composite),
                   'out/emilia_romagna/ros_' + date_str + '.tif')
 
-    plot_ros('out/emilia_romagna/ros_' + date_str + '.tif', date)
+    plot_ros('out/emilia_romagna/ros_' + date_str + '.tif', date,
+             config_plot=config)
 
     print('OK.')
