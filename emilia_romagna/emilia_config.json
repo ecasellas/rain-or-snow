@@ -11,5 +11,10 @@
     "radar_bounds": [489000, 4817000, 837000, 5047000],
     "radar_res": 1000,
     "radar_proj": "EPSG:25832",
-    "radar_nodata": 255
+    "radar_nodata": 255,
+    "plt_title": "Emilia-Romagna - Precipitation phase - {date}",
+    "plt_dem_file": "example_data/emilia_romagna/explanatory/dem_emilia_1km.tif",
+    "plt_region_shp": "example_data/emilia_romagna/explanatory/region_shp/emilia_limiti_25832.shp",
+    "plt_out_file": "out/emilia_romagna/ros_{date}.png",
+    "plt_data_institution": "Radar and station data: ARPAE-SIMC"
 }

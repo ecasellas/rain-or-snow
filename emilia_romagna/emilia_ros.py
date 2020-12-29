@@ -3,9 +3,10 @@ from datetime import datetime
 
 from pypros.pros import PyPros
 from utils_interpolation import apply_mica
+from utils_plot import plot_ros
 
-from emilia_stations_data import dict_to_file, extract_variable
 from emilia_radar_data import create_composite
+from emilia_stations_data import dict_to_file, extract_variable
 
 
 if __name__ == '__main__':
@@ -51,5 +52,7 @@ if __name__ == '__main__':
     print('Step 9/9 : Applying reflectivity mask')
     ros.save_file(ros.refl_mask(radar_composite),
                   'out/emilia_romagna/ros_' + date_str + '.tif')
+
+    plot_ros('out/emilia_romagna/ros_' + date_str + '.tif', date)
 
     print('OK.')
